@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foreign Currency Exchange - About Us</title>
+    <title>Foreign Currency Exchange - Currency</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
@@ -32,12 +32,12 @@
         font-style: italic;
       }
       .navbar-custom .nav-link {
-        color: var(--light-color);
+        color: white;
         font-weight: 500;
         margin: 0 10px;
         transition: color 0.3s ease;
       }
-      .navbar-custom .nav-link:hover {
+      .navbar-custom .nav-link.active {
         color: var(--primary-color);
       }
       .btn-outline-light:hover {
@@ -90,31 +90,98 @@
         transform: translateY(-2px);
       }
 
-      /* about-us */
-      .about-us {
+      /* Currency Table */
+      .main-sections {
         background: url('./assets/images/Grid\ 1.png') no-repeat center center/cover;
-        margin-bottom: 20px;
         padding: 60px 0;
       }
-      .location-card {
-        border: none;
-        border-radius: 20px;
-        overflow: hidden;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      .table {
+        --bs-table-bg: transparent;
+        background-color: transparent !important;
       }
-      .location-card img {
+      .currency-exchange {
         height: 250px;
-        object-fit: cover;
+        width: 100%;
+        max-width: 100%;
       }
-      .location-card .card-img-overlay {
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-        padding: 20px;
-        border-radius: 20px;
+      .currency-table .table {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
       }
-      .location-card h4,
-      .location-card p {
-        margin: 0;
+      .currency-table .table:hover {
+        transform: translateY(-5px);
       }
+      .currency-table thead {
+        color: white;
+      }
+      .currency-table th {
+        padding: 15px;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+      }
+      .currency-table td {
+        padding: 15px;
+        vertical-align: middle;
+        transition: background-color 0.3s ease;
+      }
+      .currency-table tr:hover td {
+        background-color: rgba(0, 166, 81, 0.05);
+      }
+      .btn-buy {
+        background-color: #000000;
+        color: white;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 4px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+      .btn-buy:hover {
+        background-color: var(--primary-color);
+        transform: scale(1.05);
+      }
+      .positive-change {
+        color: #28a745;
+        font-weight: 500;
+      }
+      .negative-change {
+        color: #dc3545;
+        font-weight: 500;
+      }
+      .--bs-table-bg {
+        background-color: none;
+      }
+
+      /* Card styles */
+      .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        overflow: hidden;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Search Section */
+      .search-section {
+        border-radius: 10px;
+        margin-bottom: 30px;
+        background-color: transparent;
+      }
+      .search-section .form-control {
+        min-height: 45px;
+        transition: all 0.3s ease;
+      }
+      .search-section .form-control:focus {
+        box-shadow: 0 0 0 0.2rem rgba(0, 166, 81, 0.25);
+        border-color: var(--primary-color);
+      }
+
       /* Footer */
       footer {
         color: black;
@@ -184,37 +251,26 @@
           line-height: 50px;
         }
 
-        /* Stack columns on mobile */
-        .about-us .row {
-          flex-direction: column;
-        }
-        .about-us .col {
-          width: 100%;
-          margin-bottom: 30px;
-        }
-
         /* Adjust footer columns */
         footer .row {
           text-align: center;
         }
-      }
-      .services {
-        background: url('./assets/images/Grid\ 1.png') no-repeat center center/cover;
-        padding: 60px 0;
-      }
-      .btn-services {
-        background-color: #000000;
-        color: white;
-        border: none;
-        padding: 8px 40px;
-        border-radius: 4px;
-        font-weight: 500;
-        width: 100%;
-        transition: all 0.3s ease;
-      }
-      .btn-services:hover {
-        background-color: var(--primary-color);
-        transform: translateY(-2px);
+
+        .search-section .d-flex {
+          flex-direction: column;
+          gap: 15px;
+        }
+        .search-section .form-control {
+          width: 100% !important;
+        }
+
+        /* Stack the two currency tables on medium screens */
+        .main-sections .row.gx-5 {
+          flex-direction: column;
+        }
+        .main-sections .col {
+          margin-bottom: 30px;
+        }
       }
 
       @media (max-width: 768px) {
@@ -225,12 +281,6 @@
 
         .hero {
           height: 40vh;
-        }
-
-        .our-services,
-        .currency-exchange {
-          height: auto;
-          max-width: 90%;
         }
 
         /* Adjust footer copyright */
@@ -251,6 +301,18 @@
           line-height: 28px;
           font-size: 0.9rem;
         }
+
+        /* Adjust table padding for mobile */
+        .currency-table th,
+        .currency-table td {
+          padding: 10px;
+        }
+
+        /* Make buttons smaller on mobile */
+        .btn-buy {
+          padding: 6px 15px;
+          font-size: 0.9rem;
+        }
       }
 
       @media (max-width: 576px) {
@@ -269,6 +331,23 @@
 
         .footer-heading {
           font-size: 1rem;
+        }
+
+        /* Further adjust table for very small screens */
+        .currency-table th,
+        .currency-table td {
+          padding: 8px 5px;
+          font-size: 0.85rem;
+        }
+
+        /* Hide less important columns on very small screens */
+        .currency-table .d-none-xs {
+          display: none !important;
+        }
+
+        /* Make search button full width on mobile */
+        .search-section .btn {
+          width: 100%;
         }
       }
     </style>
@@ -291,15 +370,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav mx-auto">
-           <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="./about.html">About Us</a></li>
             <li class="nav-item"><a class="nav-link" href="./ourservices.html">Services</a></li>
             <li class="nav-item"><a class="nav-link" href="./location.html">Location</a></li>
-            <li class="nav-item"><a class="nav-link" href="./currency.html">Currency</a></li>
-          </ul>
+            <li class="nav-item"><a class="nav-link active" href="./currency.html">Currency</a></li>
           </ul>
           <div class="d-flex gap-2">
-            <button class="btn btn-outline-light rounded-pill">Log In</button>
+            <button class="btn btn-outline-light rounded-pill" onclick="window.location.href='login.html'">Log In</button>
             <button class="btn btn-success rounded-pill">Create Account</button>
           </div>
         </div>
@@ -313,66 +391,199 @@
           <div class="col">
             <h1 class="aboutus-heading" data-aos="fade-down" data-aos-duration="1000">Currency</h1>
             <p class="lead mt-3" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
+              Real-time currency exchange rates and trading options.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Location Section -->
-    <section class="location py-5">
-      <div class="container">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-          <input type="text" class="form-control w-50" placeholder="Search anything...." />
-          <button class="btn btn-dark">Select <i class="fas fa-chevron-down ms-2"></i></button>
+    <!-- Currency Table Section -->
+    <div class="main-sections">
+      <section class="currency-table">
+        <div class="container">
+          <div class="row gx-5" data-aos="fade-up" data-aos-duration="800">
+            <div class="col-lg-6 col-md-12">
+              <div class="row justify-content-center">
+                <div class="col">
+                  <div class="table-responsive">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="text-center">
+                          <h4 class="fw-bold" data-aos="fade-down" data-aos-duration="1000">Most Bought</h4>
+                          <p class="fs-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                            Our most popular currency exchanges with competitive rates.
+                          </p>
+                        </div>
+                        <table class="table">
+                          <thead class="table-dark" style="font-style: italic">
+                            <tr class="italic">
+                              <th>Currency</th>
+                              <th>Current Price</th>
+                              <th>Change Rate</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td><strong>$ USD</strong></td>
+                              <td>86</td>
+                              <td class="positive-change">+0.20%</td>
+                            </tr>
+                            <tr>
+                              <td><strong>€ Euro</strong></td>
+                              <td>92</td>
+                              <td class="positive-change">+0.35%</td>
+                            </tr>
+                            <tr>
+                              <td><strong>£ Pound</strong></td>
+                              <td>105</td>
+                              <td class="negative-change">-0.15%</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-12" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+              <div class="row justify-content-center">
+                <div class="col">
+                  <div class="table-responsive">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="text-center">
+                          <h4 class="fw-bold" data-aos="fade-down" data-aos-duration="1000">Most Bought</h4>
+                          <p class="fs-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                            Our most popular currency exchanges with competitive rates.
+                          </p>
+                        </div>
+                        <table class="table">
+                          <thead class="table-dark" style="font-style: italic">
+                            <tr class="italic">
+                              <th>Currency</th>
+                              <th>Current Price</th>
+                              <th>Change Rate</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td><strong>¥ Yen</strong></td>
+                              <td>0.65</td>
+                              <td class="positive-change">+0.42%</td>
+                            </tr>
+                            <tr>
+                              <td><strong>₹ Rupee</strong></td>
+                              <td>1.15</td>
+                              <td class="negative-change">-0.28%</td>
+                            </tr>
+                            <tr>
+                              <td><strong>₿ Bitcoin</strong></td>
+                              <td>42000</td>
+                              <td class="positive-change">+2.35%</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <div class="row g-4">
-          <!-- Location 1 -->
-          <div class="col-md-4">
-            <div class="card location-card text-white">
-              <img src="assets/images/location1.png" class="card-img" alt="Location 1" />
-              <div class="card-img-overlay d-flex flex-column justify-content-end">
-                <h4 class="fw-bold">Location 1</h4>
-                <p><i class="fas fa-phone me-2"></i>000-123-456-7890</p>
-                <p><i class="fas fa-envelope me-2"></i>email@yourdomain.com</p>
-                <p><i class="fas fa-map-marker-alt me-2"></i>Your address goes here 125 Street, USA</p>
-              </div>
+      <section>
+        <div class="container mt-4">
+          <div class="search-section" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+            <div class="d-flex align-items-center gap-2 flex-wrap">
+              <input
+                type="text"
+                class="form-control flex-grow-1"
+                placeholder="Search currencies..."
+                data-aos="fade-right"
+                data-aos-duration="800"
+                data-aos-delay="400"
+              />
+              <button
+                class="btn btn-dark"
+                style="min-width: 150px"
+                data-aos="fade-left"
+                data-aos-duration="800"
+                data-aos-delay="400"
+              >
+                Filter <i class="fas fa-chevron-down ms-2"></i>
+              </button>
             </div>
           </div>
+        </div>
+      </section>
 
-          <!-- Location 2 -->
-          <div class="col-md-4">
-            <div class="card location-card text-white">
-              <img src="assets/images/location1.png" class="card-img" alt="Location 2" />
-              <div class="card-img-overlay d-flex flex-column justify-content-end">
-                <h4 class="fw-bold">Location 2</h4>
-                <p><i class="fas fa-phone me-2"></i>000-123-456-7890</p>
-                <p><i class="fas fa-envelope me-2"></i>email@yourdomain.com</p>
-                <p><i class="fas fa-map-marker-alt me-2"></i>Your address goes here 125 Street, USA</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Location 3 -->
-          <div class="col-md-4">
-            <div class="card location-card text-white">
-              <img src="assets/images/location1.png" class="card-img" alt="Location 3" />
-              <div class="card-img-overlay d-flex flex-column justify-content-end">
-                <h4 class="fw-bold">Location 3</h4>
-                <p><i class="fas fa-phone me-2"></i>000-123-456-7890</p>
-                <p><i class="fas fa-envelope me-2"></i>email@yourdomain.com</p>
-                <p><i class="fas fa-map-marker-alt me-2"></i>Your address goes here 125 Street, USA</p>
+      <!-- Main Currency Table Section -->
+      <section class="currency-table">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col">
+              <div class="table-responsive" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
+                <table class="table">
+                  <thead class="table-dark" style="font-style: italic">
+                    <tr class="italic">
+                      <th>Currency</th>
+                      <th class="d-none d-md-table-cell">Country</th>
+                      <th>Current Price</th>
+                      <th>Change Rate</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>$ USD</strong></td>
+                      <td class="d-none d-md-table-cell"><strong>United States</strong></td>
+                      <td>86</td>
+                      <td class="positive-change">+0.20%</td>
+                      <td><button class="btn btn-buy" onclick="location.href='purchase.html'">Buy</button></td>
+                    </tr>
+                    <tr>
+                      <td><strong>€ Euro</strong></td>
+                      <td class="d-none d-md-table-cell"><strong>European Union</strong></td>
+                      <td>92</td>
+                      <td class="positive-change">+0.35%</td>
+                      <td><button class="btn btn-buy" onclick="location.href='purchase.html'">Buy</button></td>
+                    </tr>
+                    <tr>
+                      <td><strong>£ Pound</strong></td>
+                      <td class="d-none d-md-table-cell"><strong>United Kingdom</strong></td>
+                      <td>105</td>
+                      <td class="negative-change">-0.15%</td>
+                      <td><button class="btn btn-buy" onclick="location.href='purchase.html'">Buy</button></td>
+                    </tr>
+                    <tr>
+                      <td><strong>¥ Yen</strong></td>
+                      <td class="d-none d-md-table-cell"><strong>Japan</strong></td>
+                      <td>0.65</td>
+                      <td class="positive-change">+0.42%</td>
+                      <td><button class="btn btn-buy" onclick="location.href='purchase.html'">Buy</button></td>
+                    </tr>
+                    <tr>
+                      <td><strong>₹ Rupee</strong></td>
+                      <td class="d-none d-md-table-cell"><strong>India</strong></td>
+                      <td>1.15</td>
+                      <td class="negative-change">-0.28%</td>
+                      <td><button class="btn btn-buy" onclick="location.href='purchase.html'">Buy</button></td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
     <!-- Footer -->
-    <footer class="mt-5">
+    <footer>
       <div class="container">
         <div class="row">
           <div class="col-md-3 col-6 mb-4" data-aos="fade-up" data-aos-duration="800">
@@ -483,6 +694,26 @@
             this.style.transform = 'translateY(0)';
           });
         });
+
+        // Simple search functionality for currency table
+        const searchInput = document.querySelector('input[type="text"]');
+        if (searchInput) {
+          searchInput.addEventListener('keyup', function () {
+            const searchTerm = this.value.toLowerCase();
+            const tableRows = document.querySelectorAll('.currency-table tbody tr');
+
+            tableRows.forEach((row) => {
+              const currency = row.querySelector('td:first-child').textContent.toLowerCase();
+              const country = row.querySelector('td:nth-child(2)')?.textContent.toLowerCase() || '';
+
+              if (currency.includes(searchTerm) || country.includes(searchTerm)) {
+                row.style.display = 'table-row';
+              } else {
+                row.style.display = 'none';
+              }
+            });
+          });
+        }
       });
     </script>
   </body>

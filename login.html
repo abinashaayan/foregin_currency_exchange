@@ -91,7 +91,7 @@
       }
 
       /* Location Section */
-      .location {
+      .main-sections {
         padding: 60px 0;
         background: url('./assets/images/Grid\ 1.png') no-repeat center center/cover;
       }
@@ -295,6 +295,102 @@
           font-size: 0.8rem;
         }
       }
+      /* Auth Pages */
+      .auth-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+        padding: 40px 0;
+      }
+
+      .auth-card {
+        margin-top: 20px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        width: 100%;
+        max-width: 600px;
+        transition: transform 0.3s ease;
+      }
+
+      .auth-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .auth-header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .auth-title {
+        font-weight: 700;
+        color: var(--dark-color);
+        margin-bottom: 10px;
+      }
+
+      .auth-subtitle {
+        color: #6c757d;
+        font-size: 0.9rem;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-label {
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: var(--dark-color);
+      }
+
+      .form-control {
+        padding: 12px 15px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        transition: all 0.3s ease;
+      }
+
+      .form-control:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 0.2rem rgba(0, 166, 81, 0.25);
+      }
+
+      .password-toggle {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: #6c757d;
+      }
+
+      .password-input-group {
+        position: relative;
+      }
+
+      .auth-options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .auth-btn{
+        width: 200px;
+        background-color: #275E03;
+      }
+
+      .form-check-input:checked {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+      }
+
+      .forgot-link {
+        color: black;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
     </style>
   </head>
   <body>
@@ -329,125 +425,39 @@
       </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" style="padding-top: 80px">
-      <div class="container text-center">
-        <div class="row gx-1">
-          <div class="col">
-            <h1 class="aboutus-heading" data-aos="fade-down" data-aos-duration="1000">Location</h1>
-            <p class="lead mt-3" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-              Find our branches worldwide for all your currency exchange needs.
-            </p>
+    <!-- Login Form -->
+    <section class="main-sections">
+      <div class="auth-container">
+        <div class="auth-card" data-aos="fade-up" data-aos-duration="800">
+          <div class="auth-header">
+            <h2 class="auth-title">Login</h2>
+            <p class="auth-subtitle">Welcome back! Please enter your details</p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Location Section -->
-    <section class="location">
-      <div class="container">
-        <section>
-          <div class="container mt-4">
-            <div class="search-section" data-aos="fade-up" data-aos-duration="800">
-              <div class="d-flex align-items-center gap-2">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Search for locations..."
-                  data-aos="fade-right"
-                  data-aos-duration="800"
-                />
-                <button class="btn btn-dark" style="width: 150px" data-aos="fade-left" data-aos-duration="800">
-                  Filtter <i class="fas fa-chevron-down ms-2"></i>
-                </button>
+          <form id="loginForm">
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="Enter Email Address" required />
+            </div>
+            <div class="form-group">
+              <label for="password" class="form-label">Password</label>
+              <div class="password-input-group">
+                <input type="password" class="form-control" id="password" placeholder="Password" required />
+                <span class="password-toggle" id="passwordToggle">
+                  <i class="far fa-eye"></i>
+                </span>
               </div>
             </div>
-          </div>
-        </section>
-
-        <div class="row g-4">
-          <!-- Location 1 -->
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-            <div class="card location-card text-white">
-              <img src="assets/images/location1.png" class="card-img" alt="New York Branch" />
-              <div class="card-img-overlay">
-                <h4 class="fw-bold">New York Branch</h4>
-                <p><i class="fas fa-phone me-2"></i>000-123-456-7890</p>
-                <p><i class="fas fa-envelope me-2"></i>ny@foreignexchange.com</p>
-                <p><i class="fas fa-map-marker-alt me-2"></i>123 Financial District, New York, NY 10005</p>
-                <p><i class="fas fa-clock me-2"></i>Open 24/7</p>
+            <div class="auth-options">
+              <a href="forgot-password.html" class="forgot-link">Forgot Password?</a>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="rememberMe" />
+                <label class="form-check-label" for="rememberMe">Remember Me</label>
               </div>
             </div>
-          </div>
-
-          <!-- Location 2 -->
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
-            <div class="card location-card text-white">
-              <img src="assets/images/location1.png" class="card-img" alt="London Branch" />
-              <div class="card-img-overlay">
-                <h4 class="fw-bold">London Branch</h4>
-                <p><i class="fas fa-phone me-2"></i>000-123-456-7890</p>
-                <p><i class="fas fa-envelope me-2"></i>london@foreignexchange.com</p>
-                <p><i class="fas fa-map-marker-alt me-2"></i>456 City Road, London EC1V 1AW</p>
-                <p><i class="fas fa-clock me-2"></i>Mon-Sat: 8AM-8PM</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Location 3 -->
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
-            <div class="card location-card text-white">
-              <img src="assets/images/location1.png" class="card-img" alt="Tokyo Branch" />
-              <div class="card-img-overlay">
-                <h4 class="fw-bold">Tokyo Branch</h4>
-                <p><i class="fas fa-phone me-2"></i>000-123-456-7890</p>
-                <p><i class="fas fa-envelope me-2"></i>tokyo@foreignexchange.com</p>
-                <p><i class="fas fa-map-marker-alt me-2"></i>789 Shinjuku Square, Tokyo 160-0022</p>
-                <p><i class="fas fa-clock me-2"></i>Mon-Fri: 9AM-9PM, Sat-Sun: 10AM-6PM</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Location 4 -->
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-            <div class="card location-card text-white">
-              <img src="assets/images/location1.png" class="card-img" alt="Paris Branch" />
-              <div class="card-img-overlay">
-                <h4 class="fw-bold">Paris Branch</h4>
-                <p><i class="fas fa-phone me-2"></i>000-123-456-7890</p>
-                <p><i class="fas fa-envelope me-2"></i>paris@foreignexchange.com</p>
-                <p><i class="fas fa-map-marker-alt me-2"></i>321 Champs-Élysées, Paris 75008</p>
-                <p><i class="fas fa-clock me-2"></i>Mon-Sat: 9AM-8PM</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Location 5 -->
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
-            <div class="card location-card text-white">
-              <img src="assets/images/location1.png" class="card-img" alt="Dubai Branch" />
-              <div class="card-img-overlay">
-                <h4 class="fw-bold">Dubai Branch</h4>
-                <p><i class="fas fa-phone me-2"></i>000-123-456-7890</p>
-                <p><i class="fas fa-envelope me-2"></i>dubai@foreignexchange.com</p>
-                <p><i class="fas fa-map-marker-alt me-2"></i>555 Sheikh Zayed Road, Dubai</p>
-                <p><i class="fas fa-clock me-2"></i>Open 24/7</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Location 6 -->
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
-            <div class="card location-card text-white">
-              <img src="assets/images/location1.png" class="card-img" alt="Singapore Branch" />
-              <div class="card-img-overlay">
-                <h4 class="fw-bold">Singapore Branch</h4>
-                <p><i class="fas fa-phone me-2"></i>000-123-456-7890</p>
-                <p><i class="fas fa-envelope me-2"></i>singapore@foreignexchange.com</p>
-                <p><i class="fas fa-map-marker-alt me-2"></i>777 Orchard Road, Singapore 238877</p>
-                <p><i class="fas fa-clock me-2"></i>Mon-Sun: 8AM-10PM</p>
-              </div>
-            </div>
+          </form>
+          <div class="auth-footer text-center">
+            <button type="submit" class="btn btn-success auth-btn mb-1">Login</button>
+            <p>Doesn't have an account? <a href="signup.html" class="auth-link text-black" onclick="window.location.href='signup.html'">Sign up</a></p>
           </div>
         </div>
       </div>

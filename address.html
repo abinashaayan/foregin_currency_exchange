@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foreign Currency Exchange - About Us</title>
+    <title>Foreign Currency Exchange - Select Delivery Mode</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <style>
       :root {
-        --primary-color: #00a651;
+        --primary-color: #275e03;
         --dark-color: #222222;
         --light-color: #ffffff;
       }
@@ -53,7 +53,6 @@
       .btn-success:hover {
         background-color: #008740;
         border-color: #008740;
-        transform: translateY(-2px);
       }
 
       /* Hero Section */
@@ -65,36 +64,95 @@
         display: flex;
         align-items: center;
       }
-      .aboutus-heading {
+
+      .delivery-heading {
         font-weight: 900;
-        font-style: Black;
         font-size: 80px;
         line-height: 80.1px;
-        letter-spacing: 0%;
-        vertical-align: middle;
-      }
-      .hero-buttons .btn {
-        margin-right: 15px;
-        padding: 12px 30px;
-        font-weight: 600;
-        width: 100%;
-        transition: all 0.3s ease;
-      }
-      .btn-light {
-        background-color: var(--light-color);
-        border-color: var(--light-color);
-      }
-      .btn-outline-light:hover {
-        background-color: var(--light-color);
-        color: var(--dark-color);
-        transform: translateY(-2px);
       }
 
-      /* about-us */
-      .about-us {
+      /* Main content */
+      .main-sections {
         background: url('./assets/images/Grid\ 1.png') no-repeat center center/cover;
+        padding: 5px 0;
+      }
+
+      .delivery-card-container {
+        max-width: 700px;
+        margin: 80px auto;
+        padding: 40px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .delivery-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
         margin-bottom: 20px;
-        padding: 60px 0;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .delivery-card.selected {
+        background-color: var(--primary-color);
+        color: white;
+      }
+
+      .delivery-card.unselected {
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        color: #333;
+      }
+
+      .delivery-info {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .delivery-info label {
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .delivery-info small {
+        display: block;
+        font-size: 0.9rem;
+        color: inherit;
+      }
+
+      .delivery-card i {
+        font-size: 1.2rem;
+        cursor: pointer;
+      }
+
+      .btn-select {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 10px 30px;
+        font-size: 1rem;
+        border-radius: 8px;
+        border: none;
+      }
+
+      .btn-select:hover {
+        background-color: #008740;
+      }
+
+      .add-new {
+        display: block;
+        margin: 20px auto;
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
+        color: black;
+      }
+      .btn-success {
+        background-color: var(--primary-color);
       }
 
       /* Footer */
@@ -134,73 +192,31 @@
         color: #ccc;
       }
 
-      .about-paragraph {
-        line-height: 35px;
+      /* Button hover effect */
+      .btn {
+        transition: all 0.3s ease;
       }
-
-      /* Animations */
-      .fade-in {
-        opacity: 0;
-        transform: translateY(20px);
-        transition:
-          opacity 0.6s ease,
-          transform 0.6s ease;
-      }
-
-      .fade-in.visible {
-        opacity: 1;
-        transform: translateY(0);
+      .btn:hover {
+        transform: translateY(-2px);
       }
 
       /* Responsive Adjustments */
       @media (max-width: 1200px) {
-        .aboutus-heading {
+        .delivery-heading {
           font-size: 65px;
           line-height: 65px;
         }
       }
 
       @media (max-width: 992px) {
-        .aboutus-heading {
+        .delivery-heading {
           font-size: 50px;
           line-height: 50px;
         }
-
-        /* Stack columns on mobile */
-        .about-us .row {
-          flex-direction: column;
-        }
-        .about-us .col {
-          width: 100%;
-          margin-bottom: 30px;
-        }
-
-        /* Adjust footer columns */
-        footer .row {
-          text-align: center;
-        }
-      }
-      .services {
-        background: url('./assets/images/Grid\ 1.png') no-repeat center center/cover;
-        padding: 60px 0;
-      }
-      .btn-services {
-        background-color: #000000;
-        color: white;
-        border: none;
-        padding: 8px 40px;
-        border-radius: 4px;
-        font-weight: 500;
-        width: 100%;
-        transition: all 0.3s ease;
-      }
-      .btn-services:hover {
-        background-color: var(--primary-color);
-        transform: translateY(-2px);
       }
 
       @media (max-width: 768px) {
-        .aboutus-heading {
+        .delivery-heading {
           font-size: 40px;
           line-height: 40px;
         }
@@ -209,29 +225,9 @@
           height: 40vh;
         }
 
-        .our-services,
-        .currency-exchange {
-          height: auto;
-          max-width: 90%;
-        }
-
-        /* Adjust footer copyright */
-        .copyright {
-          flex-direction: column;
-          text-align: center;
-        }
-        .copyright .d-flex {
-          margin-top: 15px;
-          justify-content: center;
-          flex-wrap: wrap;
-        }
-        .copyright .me-3 {
-          margin: 5px;
-        }
-
-        .about-paragraph {
-          line-height: 28px;
-          font-size: 0.9rem;
+        .delivery-card {
+          margin: 40px auto;
+          padding: 30px 20px;
         }
       }
 
@@ -240,7 +236,7 @@
           font-size: 1rem;
         }
 
-        .aboutus-heading {
+        .delivery-heading {
           font-size: 32px;
           line-height: 32px;
         }
@@ -251,6 +247,11 @@
 
         .footer-heading {
           font-size: 1rem;
+        }
+
+        .delivery-mode-btn {
+          padding: 12px 15px;
+          font-size: 14px;
         }
       }
     </style>
@@ -280,7 +281,9 @@
             <li class="nav-item"><a class="nav-link" href="./currency.html">Currency</a></li>
           </ul>
           <div class="d-flex gap-2">
-            <button class="btn btn-outline-light rounded-pill" onclick="window.location.href='login.html'">Log In</button>
+            <button class="btn btn-outline-light rounded-pill" onclick="window.location.href='login.html'">
+              Log In
+            </button>
             <button class="btn btn-success rounded-pill">Create Account</button>
           </div>
         </div>
@@ -289,79 +292,47 @@
 
     <!-- Hero Section -->
     <section class="hero" style="padding-top: 80px">
-      <div class="container text-center">
+      <div class="container">
         <div class="row gx-1">
           <div class="col">
-            <h1 class="aboutus-heading" data-aos="fade-down" data-aos-duration="1000">Our Services</h1>
+            <h1 class="delivery-heading" data-aos="fade-down" data-aos-duration="1000">Delivery Options</h1>
             <p class="lead mt-3" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
+              Choose how you'd like to receive your foreign currency
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Service Section -->
-    <section class="services">
-      <div class="container">
-        <div class="row g-4">
-          <div class="col-md-3" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-            <div class="service-card">
-              <div class="mb-4">
-                <img src="assets/images/setting_Icon.png" height="50" width="50" alt="Service icon" />
+    <section class="main-sections">
+      <div class="delivery-card-container text-center">
+        <h2>Select Delivery Method</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.</p>
+
+        <div class="d-flex justify-content-evenly align-items-center">
+          <div class="delivery-card selected text-start" onclick="selectCard(this)">
+            <div class="delivery-info">
+              <input type="radio" name="delivery" checked style="cursor: pointer" />
+              <div class="me-4">
+                <label>Home Delivery</label><br />
+                <small>New York, +173883772242</small>
               </div>
-              <h3>Service 1</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur. Tellus pharetra sed auctor dolor est vestibulum. Pulvinar risus
-                facilisis luctus ut. Mattis ultrices eget facilisis gravida praesent nullam velit. Ut morbi maecenas
-                mattis integer. Et quis purus vitae nisl dictum. Pretium feugiat auctor duis.
-              </p>
-              <button class="btn btn-services">Buy</button>
             </div>
+            <i class="fas fa-trash"></i>
           </div>
-          <div class="col-md-3" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
-            <div class="service-card">
-              <div class="mb-4">
-                <img src="assets/images/setting_Icon.png" height="50" width="50" alt="Service icon" />
+          <div class="delivery-card unselected text-start" onclick="selectCard(this)">
+            <div class="delivery-info">
+              <input type="radio" name="delivery" style="cursor: pointer" />
+              <div class="me-4">
+                <label>Store Pickup</label><br />
+                <small>New York, +173883772242</small>
               </div>
-              <h3>Service 2</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur. Tellus pharetra sed auctor dolor est vestibulum. Pulvinar risus
-                facilisis luctus ut. Mattis ultrices eget facilisis gravida praesent nullam velit. Ut morbi maecenas
-                mattis integer. Et quis purus vitae nisl dictum. Pretium feugiat auctor duis.
-              </p>
-              <button class="btn btn-services">Buy</button>
             </div>
-          </div>
-          <div class="col-md-3" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
-            <div class="service-card">
-              <div class="mb-4">
-                <img src="assets/images/setting_Icon.png" height="50" width="50" alt="Service icon" />
-              </div>
-              <h3>Service 3</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur. Tellus pharetra sed auctor dolor est vestibulum. Pulvinar risus
-                facilisis luctus ut. Mattis ultrices eget facilisis gravida praesent nullam velit. Ut morbi maecenas
-                mattis integer. Et quis purus vitae nisl dictum. Pretium feugiat auctor duis.
-              </p>
-              <button class="btn btn-services">Buy</button>
-            </div>
-          </div>
-          <div class="col-md-3" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
-            <div class="service-card">
-              <div class="mb-4">
-                <img src="assets/images/setting_Icon.png" height="50" width="50" alt="Service icon" />
-              </div>
-              <h3>Service 3</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur. Tellus pharetra sed auctor dolor est vestibulum. Pulvinar risus
-                facilisis luctus ut. Mattis ultrices eget facilisis gravida praesent nullam velit. Ut morbi maecenas
-                mattis integer. Et quis purus vitae nisl dictum. Pretium feugiat auctor duis.
-              </p>
-              <button class="btn btn-services">Buy</button>
-            </div>
+            <i class="fas fa-trash"></i>
           </div>
         </div>
+        <span class="add-new">+ Add New Address</span>
+        <button type="button" class="btn-select" onclick="window.location.href='payment.html'">Select</button>
       </div>
     </section>
 
@@ -446,7 +417,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      // Initialize animations
       document.addEventListener('DOMContentLoaded', function () {
         AOS.init({
           duration: 800,
@@ -454,30 +424,19 @@
           once: true,
           mirror: false
         });
-
-        // Add scroll event listener for navbar
-        window.addEventListener('scroll', function () {
-          const navbar = document.querySelector('.navbar-custom');
-          if (window.scrollY > 50) {
-            navbar.style.padding = '10px 0';
-            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-          } else {
-            navbar.style.padding = '15px 0';
-            navbar.style.boxShadow = 'none';
-          }
-        });
-
-        // Add hover animations to buttons
-        const buttons = document.querySelectorAll('.btn');
-        buttons.forEach((button) => {
-          button.addEventListener('mouseenter', function () {
-            this.style.transform = 'translateY(-2px)';
-          });
-          button.addEventListener('mouseleave', function () {
-            this.style.transform = 'translateY(0)';
-          });
-        });
       });
+      function selectCard(card) {
+        document.querySelectorAll('.delivery-card').forEach((c) => {
+          c.classList.remove('selected');
+          c.classList.add('unselected');
+        });
+        card.classList.remove('unselected');
+        card.classList.add('selected');
+        const radio = card.querySelector('input[type="radio"]');
+        if (radio) {
+          radio.checked = true;
+        }
+      }
     </script>
   </body>
 </html>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foreign Currency Exchange - About Us</title>
+    <title>Foreign Currency Exchange - Locations</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
@@ -32,13 +32,10 @@
         font-style: italic;
       }
       .navbar-custom .nav-link {
-        color: var(--light-color);
+        color: white;
         font-weight: 500;
         margin: 0 10px;
         transition: color 0.3s ease;
-      }
-      .navbar-custom .nav-link:hover {
-        color: var(--primary-color);
       }
       .btn-outline-light:hover {
         background-color: transparent;
@@ -65,7 +62,7 @@
         display: flex;
         align-items: center;
       }
-      .aboutus-heading {
+      .forgot-heading {
         font-weight: 900;
         font-style: Black;
         font-size: 80px;
@@ -73,28 +70,85 @@
         letter-spacing: 0%;
         vertical-align: middle;
       }
-      .hero-buttons .btn {
-        margin-right: 15px;
-        padding: 12px 30px;
-        font-weight: 600;
-        width: 100%;
-        transition: all 0.3s ease;
+      .main-sections {
+        padding: 60px 0;
+        background: url('./assets/images/Grid\ 1.png') no-repeat center center/cover;
       }
-      .btn-light {
-        background-color: var(--light-color);
-        border-color: var(--light-color);
-      }
-      .btn-outline-light:hover {
-        background-color: var(--light-color);
-        color: var(--dark-color);
-        transform: translateY(-2px);
+      /* Auth Pages */
+      .auth-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+        padding: 40px 0;
       }
 
-      /* about-us */
-      .about-us {
-        background: url('./assets/images/Grid\ 1.png') no-repeat center center/cover;
+      .auth-card {
+        margin-top: 20px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        width: 100%;
+        max-width: 600px;
+        transition: transform 0.3s ease;
+      }
+
+      .auth-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .auth-header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .auth-title {
+        font-weight: 700;
+        color: var(--dark-color, #333);
+        margin-bottom: 10px;
+      }
+
+      .auth-subtitle {
+        color: #6c757d;
+        font-size: 0.9rem;
+      }
+
+      .form-group {
         margin-bottom: 20px;
-        padding: 60px 0;
+      }
+
+      .form-label {
+        font-weight: 600;
+        margin-bottom: 8px;
+        display: block;
+        color: var(--dark-color, #333);
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .form-control:focus {
+        border-color: var(--primary-color, #00a651);
+        box-shadow: 0 0 0 0.2rem rgba(0, 166, 81, 0.25);
+      }
+
+      .auth-btn {
+        min-width: 150px;
+        padding: 12px 25px;
+        font-weight: bold;
+        border-radius: 8px;
+        transition: transform 0.2s ease;
+      }
+
+      .auth-footer {
+        margin-top: 20px;
       }
 
       /* Footer */
@@ -137,122 +191,6 @@
       .about-paragraph {
         line-height: 35px;
       }
-
-      /* Animations */
-      .fade-in {
-        opacity: 0;
-        transform: translateY(20px);
-        transition:
-          opacity 0.6s ease,
-          transform 0.6s ease;
-      }
-
-      .fade-in.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* Responsive Adjustments */
-      @media (max-width: 1200px) {
-        .aboutus-heading {
-          font-size: 65px;
-          line-height: 65px;
-        }
-      }
-
-      @media (max-width: 992px) {
-        .aboutus-heading {
-          font-size: 50px;
-          line-height: 50px;
-        }
-
-        /* Stack columns on mobile */
-        .about-us .row {
-          flex-direction: column;
-        }
-        .about-us .col {
-          width: 100%;
-          margin-bottom: 30px;
-        }
-
-        /* Adjust footer columns */
-        footer .row {
-          text-align: center;
-        }
-      }
-      .services {
-        background: url('./assets/images/Grid\ 1.png') no-repeat center center/cover;
-        padding: 60px 0;
-      }
-      .btn-services {
-        background-color: #000000;
-        color: white;
-        border: none;
-        padding: 8px 40px;
-        border-radius: 4px;
-        font-weight: 500;
-        width: 100%;
-        transition: all 0.3s ease;
-      }
-      .btn-services:hover {
-        background-color: var(--primary-color);
-        transform: translateY(-2px);
-      }
-
-      @media (max-width: 768px) {
-        .aboutus-heading {
-          font-size: 40px;
-          line-height: 40px;
-        }
-
-        .hero {
-          height: 40vh;
-        }
-
-        .our-services,
-        .currency-exchange {
-          height: auto;
-          max-width: 90%;
-        }
-
-        /* Adjust footer copyright */
-        .copyright {
-          flex-direction: column;
-          text-align: center;
-        }
-        .copyright .d-flex {
-          margin-top: 15px;
-          justify-content: center;
-          flex-wrap: wrap;
-        }
-        .copyright .me-3 {
-          margin: 5px;
-        }
-
-        .about-paragraph {
-          line-height: 28px;
-          font-size: 0.9rem;
-        }
-      }
-
-      @media (max-width: 576px) {
-        .navbar-brand {
-          font-size: 1rem;
-        }
-
-        .aboutus-heading {
-          font-size: 32px;
-          line-height: 32px;
-        }
-
-        .hero {
-          height: 35vh;
-        }
-
-        .footer-heading {
-          font-size: 1rem;
-        }
-      }
     </style>
   </head>
   <body>
@@ -280,86 +218,45 @@
             <li class="nav-item"><a class="nav-link" href="./currency.html">Currency</a></li>
           </ul>
           <div class="d-flex gap-2">
-            <button class="btn btn-outline-light rounded-pill" onclick="window.location.href='login.html'">Log In</button>
+            <button class="btn btn-outline-light rounded-pill" onclick="window.location.href='login.html'">
+              Log In
+            </button>
             <button class="btn btn-success rounded-pill">Create Account</button>
           </div>
         </div>
       </div>
     </nav>
-
-    <!-- Hero Section -->
-    <section class="hero" style="padding-top: 80px">
-      <div class="container text-center">
-        <div class="row gx-1">
-          <div class="col">
-            <h1 class="aboutus-heading" data-aos="fade-down" data-aos-duration="1000">Our Services</h1>
-            <p class="lead mt-3" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
-            </p>
+    <!-- Login Form -->
+    <section class="main-sections">
+      <div class="auth-container">
+        <div class="auth-card" data-aos="fade-up" data-aos-duration="800">
+          <div class="auth-header">
+            <h2 class="auth-title">KYC Details</h2>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Service Section -->
-    <section class="services">
-      <div class="container">
-        <div class="row g-4">
-          <div class="col-md-3" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-            <div class="service-card">
-              <div class="mb-4">
-                <img src="assets/images/setting_Icon.png" height="50" width="50" alt="Service icon" />
-              </div>
-              <h3>Service 1</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur. Tellus pharetra sed auctor dolor est vestibulum. Pulvinar risus
-                facilisis luctus ut. Mattis ultrices eget facilisis gravida praesent nullam velit. Ut morbi maecenas
-                mattis integer. Et quis purus vitae nisl dictum. Pretium feugiat auctor duis.
-              </p>
-              <button class="btn btn-services">Buy</button>
+          <form id="loginForm">
+            <div class="form-group">
+              <label for="social-security" class="form-label">Social Security Number</label>
+              <input type="text" class="form-control" id="social-security" placeholder="Enter SS Number" required />
             </div>
+            <div class="form-group">
+              <label for="id-type" class="form-label">Select ID Type</label>
+              <select class="form-control" id="id-type" required>
+                <option value="" disabled selected>Select ID Type</option>
+                <option value="passport">Passport</option>
+                <option value="driver-license">Driver's License</option>
+                <option value="national-id">National ID</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="id-number" class="form-label">ID Number</label>
+              <input type="text" class="form-control" id="id-number" placeholder="Enter your ID Number" required />
+            </div>
+          </form>
+          <div class="auth-footer text-center">
+            <button type="submit" class="btn btn-success auth-btn mb-1">Upload</button>
           </div>
-          <div class="col-md-3" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
-            <div class="service-card">
-              <div class="mb-4">
-                <img src="assets/images/setting_Icon.png" height="50" width="50" alt="Service icon" />
-              </div>
-              <h3>Service 2</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur. Tellus pharetra sed auctor dolor est vestibulum. Pulvinar risus
-                facilisis luctus ut. Mattis ultrices eget facilisis gravida praesent nullam velit. Ut morbi maecenas
-                mattis integer. Et quis purus vitae nisl dictum. Pretium feugiat auctor duis.
-              </p>
-              <button class="btn btn-services">Buy</button>
-            </div>
-          </div>
-          <div class="col-md-3" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
-            <div class="service-card">
-              <div class="mb-4">
-                <img src="assets/images/setting_Icon.png" height="50" width="50" alt="Service icon" />
-              </div>
-              <h3>Service 3</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur. Tellus pharetra sed auctor dolor est vestibulum. Pulvinar risus
-                facilisis luctus ut. Mattis ultrices eget facilisis gravida praesent nullam velit. Ut morbi maecenas
-                mattis integer. Et quis purus vitae nisl dictum. Pretium feugiat auctor duis.
-              </p>
-              <button class="btn btn-services">Buy</button>
-            </div>
-          </div>
-          <div class="col-md-3" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
-            <div class="service-card">
-              <div class="mb-4">
-                <img src="assets/images/setting_Icon.png" height="50" width="50" alt="Service icon" />
-              </div>
-              <h3>Service 3</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur. Tellus pharetra sed auctor dolor est vestibulum. Pulvinar risus
-                facilisis luctus ut. Mattis ultrices eget facilisis gravida praesent nullam velit. Ut morbi maecenas
-                mattis integer. Et quis purus vitae nisl dictum. Pretium feugiat auctor duis.
-              </p>
-              <button class="btn btn-services">Buy</button>
-            </div>
+          <div class="auth-footer text-center">
+            <button type="submit" class="btn btn-light auth-btn">Skip</button>
           </div>
         </div>
       </div>
@@ -442,40 +339,15 @@
         </div>
       </div>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      // Initialize animations
       document.addEventListener('DOMContentLoaded', function () {
         AOS.init({
           duration: 800,
           easing: 'ease-in-out',
           once: true,
           mirror: false
-        });
-
-        // Add scroll event listener for navbar
-        window.addEventListener('scroll', function () {
-          const navbar = document.querySelector('.navbar-custom');
-          if (window.scrollY > 50) {
-            navbar.style.padding = '10px 0';
-            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-          } else {
-            navbar.style.padding = '15px 0';
-            navbar.style.boxShadow = 'none';
-          }
-        });
-
-        // Add hover animations to buttons
-        const buttons = document.querySelectorAll('.btn');
-        buttons.forEach((button) => {
-          button.addEventListener('mouseenter', function () {
-            this.style.transform = 'translateY(-2px)';
-          });
-          button.addEventListener('mouseleave', function () {
-            this.style.transform = 'translateY(0)';
-          });
         });
       });
     </script>
